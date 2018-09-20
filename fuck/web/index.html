@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="static/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="static/themes/icon.css">
+<script type="text/javascript" src="static/jquery.min.js"></script>
+<script type="text/javascript" src="static/jquery.easyui.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#win').window({
+            width:600,
+            height:400,
+            modal:false,
+            maximizable:false,
+            onBeforeClose:function(){
+                $.messager.alert('警告','准备关闭了');
+                //return false;
+            }
+        });
+
+        $('button').click(function(){
+            $('#win').window('open');
+        });
+
+        $.messager.show({
+            title:'我的消息',
+            msg:'消息将在5秒后关闭。',
+            timeout:5000,
+            showType:'fade'
+        });
+
+    })
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="p" class="easyui-panel" style="width:500px;height:200px;padding:10px;"
+     title="My Panel" iconCls="icon-save" collapsible="true">
+    The panel content
+</div>
+
+<div id="win">aaa</div>
+<button>打开</button>
+</body>
+</body>
+</html>
